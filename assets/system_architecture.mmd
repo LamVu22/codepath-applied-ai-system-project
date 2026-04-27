@@ -1,0 +1,13 @@
+flowchart LR
+    A[Human music request] --> B[AppliedMusicAgent]
+    B --> C[Retriever]
+    C --> D[Knowledge docs]
+    C --> E[Song catalog CSV]
+    B --> F[Profile inference]
+    F --> G[Guardrails]
+    G --> H[Content-based scorer]
+    H --> I[Ranked recommendations]
+    I --> J[Confidence + explanations]
+    J --> K[CLI output]
+    J --> L[Evaluation harness]
+    L --> M[Pass/fail summary]
