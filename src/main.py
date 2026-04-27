@@ -9,6 +9,7 @@ def main() -> None:
         "I need chill lofi music for coding homework tonight",
         "Give me high energy songs for a gym workout",
         "I want metal for sleep because I am anxious",
+        "Give me songs to relieve stress and relax after a long day"
     ]
 
     for query in demo_queries:

@@ -160,7 +160,25 @@ AI collaboration: AI assistance was helpful for brainstorming the agent workflow
 
 ## Presentation And Walkthrough
 
-Loom walkthrough: TODO - paste your Loom link here after recording.
+The command below runs the end-to-end applied AI workflow:
+
+```bash
+python -m src.main
+```
+
+When `src.main` runs, it creates an `AppliedMusicAgent` and sends several demo prompts through the full system. For each prompt, the agent prints the user query, confidence score, observable plan, retrieved context, guardrail warnings when needed, and the final ranked song recommendations with scoring explanations.
+
+### Demo Screenshot 1
+
+![Demo 1 output](screenshots/demo1.png)
+
+In this screenshot, the first prompt asks for chill lofi music for coding homework. The system retrieves both listening guidelines and the genre/mood map, infers a lofi-focused study profile, then recommends `Midnight Coding`, `Library Rain`, and `Focus Flow`. The second prompt asks for high-energy gym music. Because no exact genre is provided, the guardrail lowers the importance of genre and lets energy, danceability, tempo, and mood drive the recommendation list.
+
+### Demo Screenshot 2
+
+![Demo 2 output](screenshots/demo2.png)
+
+This screenshot demonstrates the reliability and guardrail behavior. The request "metal for sleep because I am anxious" contains conflicting signals, so the system warns that sleep conflicts with intense/high-energy music and favors calm tracks instead of literal metal matches. The final stress-relief prompt is vaguer, so the system reports lower confidence and uses calm audio features and retrieved guidelines to recommend lower-energy, more acoustic songs.
 
 For the walkthrough, run:
 
@@ -169,4 +187,4 @@ python -m src.main
 python -m src.evaluate
 ```
 
-Show the three demo inputs, the retrieved context/guardrails, and the `4/4` evaluation summary.
+Show the demo inputs, retrieved context, guardrails, confidence scores, recommendations, and the `4/4` evaluation summary.
